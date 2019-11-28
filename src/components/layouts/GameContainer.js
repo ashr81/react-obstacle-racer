@@ -11,6 +11,7 @@ const GameContainer = styled(Flex)`
   bottom: 0px;
   margin-right: auto;
   margin-left: auto;
+  overflow: hidden;
 `
 
 export default GameContainer;
