@@ -25,9 +25,9 @@ const useObstaclesPosition = () => {
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
-      updateRowOne(row => row.map(r => r + 20))
-      updateRowTwo(row => row.map(r => r + 20))
-      updateRowThree(row => row.map(r => r + 20))
+      updateRowOne(row => row.filter(r => r <= 600).map(r => r + 20))
+      updateRowTwo(row => row.filter(r => r <= 600).map(r => r + 20))
+      updateRowThree(row => row.filter(r => r <= 600).map(r => r + 20))
     }, 100)
     return () => intervalId && window.clearInterval(intervalId)
   }, [])
