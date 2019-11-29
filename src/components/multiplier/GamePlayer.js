@@ -10,13 +10,13 @@ const GamePlayer = () => {
   return (
     <GameContainer>
       <GameDivisionContainer>
-        {rowOne.map((row, i) => <ObstacleArt key={i} positionY={row}/>)}
+        {rowOne.map((top, i) => <ObstacleArt key={i} style={{top}}/>)}
       </GameDivisionContainer>
       <GameDivisionContainer>
-        {rowTwo.map((row, i) => <ObstacleArt key={i} positionY={row}/>)}
+        {rowTwo.map((top, i) => <ObstacleArt key={i} style={{top}}/>)}
       </GameDivisionContainer>
       <GameDivisionContainer>
-        {rowThree.map((row, i) => <ObstacleArt key={i} positionY={row}/>)}
+        {rowThree.map((top, i) => <ObstacleArt key={i} style={{top}}/>)}
       </GameDivisionContainer>
       <PlayerArt positionX={playerPostionX}/>
     </GameContainer>
