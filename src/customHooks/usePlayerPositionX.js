@@ -17,6 +17,8 @@ const usePlayerPositionX = () => {
       }
     }
     window.addEventListener('keydown', onKeyPressEventHandler)
+    window.addEventListener('click', onKeyPressEventHandler)
+    window.addEventListener('touchend', onKeyPressEventHandler)
   }, [])
   return { playerPostionX }
 }
