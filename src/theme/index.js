@@ -1,6 +1,21 @@
 export default {
   breakpoints: [600, 900, 1200, 1800],
   spaces: [],
+  fontWeights: {
+    light: 200,
+    normal: 400,
+    bold: 600,
+    bolder: 900
+  },
+  fontSizes: {
+    xs: '10px',
+    sm: '12px',
+    md: '14px',
+    mdX: '16px',
+    lg: '18px',
+    xl: '24px',
+    xxl: '28px'
+  },
   colors: {
     black: "#000000",
     lead: "#1d1f20",
