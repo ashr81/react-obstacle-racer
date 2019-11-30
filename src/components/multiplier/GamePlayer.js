@@ -1,12 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { GameContainer, GameDivisionContainer } from '../layouts';
-import { ObstacleArt, PlayerArt } from '../artifacts';
+import { ObstacleArt, PlayerArt, GameOverArt } from '../artifacts';
 import { usePlayerPositionX, useObstaclesPosition } from '../../customHooks';
 import { ScoreContext } from '../../contexts';
 
 const GamePlayer = () => {
+  const [openModal, updateOpenModal] = useState(false)
   const  { playerPostionX } = usePlayerPositionX()
-  const { rowOne, rowTwo, rowThree, score, stopGame } = useObstaclesPosition()
+  const { rowOne, rowTwo, rowThree, score, stopGame, restartGame } = useObstaclesPosition()
   const { updateScore } = useContext(ScoreContext)
   useEffect(() => {
     updateScore(score)
@@ -22,8 +23,14 @@ const GamePlayer = () => {
       (playerPostionX === 200 && rowThree.reduce(detectBlockInSameRow, false))
     ) {
       stopGame()
+      updateOpenModal(true)
     }
   }, [playerPostionX, rowOne, rowThree, rowTwo, stopGame])
+
+  const onRestart = () => {
+    restartGame()
+    updateOpenModal(false)
+  }
 
   return (
     <GameContainer>
@@ -37,6 +44,7 @@ const GamePlayer = () => {
         {rowThree.map((top, i) => <ObstacleArt key={i} style={{top}}/>)}
       </GameDivisionContainer>
       <PlayerArt positionX={playerPostionX}/>
+      {openModal && <GameOverArt score={score} onRestart={onRestart}/>}
     </GameContainer>
   )
 }

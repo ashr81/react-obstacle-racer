@@ -1,6 +1,6 @@
 export default {
   breakpoints: [600, 900, 1200, 1800],
-  spaces: [],
+  space: [0, 2, 4, 8, 12, 16, 24, 32, 64, 128],
   fontWeights: {
     light: 200,
     normal: 400,

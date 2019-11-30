@@ -9,10 +9,9 @@ const useObstaclesPosition = () => {
   const [blockMovementIntervalId, updateBlockMovementIntervalId] = useState(null)
 
   useEffect(() => {
-    let intervalId
-    if(!intervalId) {
+    if(!createBlockIntervalId) {
       const randomRowUpdate = [updateRowOne, updateRowTwo, updateRowThree]
-      intervalId = window.setInterval(() => {
+      const intervalId = window.setInterval(() => {
         const first = Math.floor(Math.random()*3)
         const second = Math.floor(Math.random()*3)
         randomRowUpdate[first](row => {
@@ -24,13 +23,12 @@ const useObstaclesPosition = () => {
       }, 2000)
       updateCreateBlockIntervalId(intervalId)
     }
-    return () => intervalId && window.clearInterval(intervalId)
-  }, [updateRowOne, updateRowTwo, updateRowThree, updateCreateBlockIntervalId])
+    return () => createBlockIntervalId && window.clearInterval(createBlockIntervalId)
+  }, [updateRowOne, updateRowTwo, updateRowThree, updateCreateBlockIntervalId, createBlockIntervalId])
 
   useEffect(() => {
-    let intervalId
-    if(!intervalId) {
-      intervalId = window.setInterval(() => {
+    if(!blockMovementIntervalId) {
+      const intervalId = window.setInterval(() => {
         let score = 0
         const sumGroup = (acc, cur) => {
           if(cur <= 600) {
@@ -47,12 +45,21 @@ const useObstaclesPosition = () => {
       }, 100)
       updateBlockMovementIntervalId(intervalId)
     }
-    return () => intervalId && window.clearInterval(intervalId)
-  }, [updateBlockMovementIntervalId])
+    return () => blockMovementIntervalId && window.clearInterval(blockMovementIntervalId)
+  }, [updateBlockMovementIntervalId, blockMovementIntervalId])
 
   const stopGame = () => {
     window.clearInterval(createBlockIntervalId)
     window.clearInterval(blockMovementIntervalId)
+  }
+
+  const restartGame = () => {
+    updateRowOne([])
+    updateRowTwo([])
+    updateRowThree([])
+    updateScore(0)
+    updateBlockMovementIntervalId(null)
+    updateCreateBlockIntervalId(null)
   }
 
   return {
@@ -60,7 +67,8 @@ const useObstaclesPosition = () => {
     rowTwo,
     rowThree,
     score,
-    stopGame
+    stopGame,
+    restartGame
   }
 }
 
