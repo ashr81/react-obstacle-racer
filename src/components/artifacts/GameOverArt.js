@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Image } from 'rebass'
+import { Flex } from '.'
 import Text from './Text';
 import { reload } from '../../images';
 
@@ -13,7 +13,7 @@ const GameOverArtContainer = styled(Flex)
   width: 100%;
 `
 
-const ImageExtended = styled(Image)`
+const ImageExtended = styled.img`
   width: 48px;
   cursor: pointer;
 `

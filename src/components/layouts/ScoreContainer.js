@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Flex } from 'rebass'
+import { Flex } from '../artifacts'
 
 const ScoreContainer =styled(Flex).attrs(() => ({ alignItems: 'center', justifyContent: 'center' }))`
   top: 0px;

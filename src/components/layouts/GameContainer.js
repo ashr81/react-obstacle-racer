@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Flex } from 'rebass'
+import { Flex } from '../artifacts';
 
 const GameContainer = styled(Flex)`
   border: 3px solid ${({ theme: { colors }}) => colors.white};

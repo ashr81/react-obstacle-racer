@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from 'rebass'
+import { Flex } from '.'
 
 const IndividualBox = styled(Flex).attrs(() => ({ width: 25, height: 25 }))`
   background-color: white;

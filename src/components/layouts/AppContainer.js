@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Flex } from 'rebass';
+import { Flex } from '../artifacts';
 
 const AppContainer = styled(Flex)`
   position: relative;

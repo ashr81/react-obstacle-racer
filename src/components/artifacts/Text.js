@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Flex } from 'rebass';
+import { Flex } from '.';
 
-const Text = styled(Flex).attrs(({ as }) => ({ as }))`
+const Text = styled(Flex)`
   color: ${({ theme: { colors }}) => colors.white};
   font-size: ${({ theme: { fontSizes }, fontSize}) => fontSizes[fontSize]};
   font-weight: ${({ theme: { fontWeights }, bold, bolder }) => {

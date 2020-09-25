@@ -1,4 +1,4 @@
-export default {
+const theme = {
   breakpoints: [600, 900, 1200, 1800],
   space: [0, 2, 4, 8, 12, 16, 24, 32, 64, 128],
   fontWeights: {
@@ -99,5 +99,7 @@ export default {
     purpleThorn: "#f3bac3",
     tootieFruity: "#f9dce1",
     paleCherryBlossom: "#fcf0f2"
+  }
 }
-}
+
+export default theme;
